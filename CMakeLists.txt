@@ -16,7 +16,7 @@ juce_add_plugin(Cloudy9
   PLUGIN_CODE ClN9
   FORMATS VST3 AAX Standalone
   PRODUCT_NAME "Cloudy9"
-  DESCRIPTION "Adaptive harmonic generator"
+  DESCRIPTION "Analytic ninth-harmonic generator"
   IS_SYNTH FALSE
   NEEDS_MIDI_INPUT FALSE
   NEEDS_MIDI_OUTPUT FALSE
@@ -28,7 +28,7 @@ juce_add_plugin(Cloudy9
 juce_generate_juce_header(Cloudy9)
 target_sources(Cloudy9 PRIVATE Source/HarmonicDSP.h Source/PluginProcessor.cpp Source/PluginProcessor.h Source/PluginEditor.cpp Source/PluginEditor.h)
 target_compile_definitions(Cloudy9 PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_VST3_CAN_REPLACE_VST2=0)
-target_link_libraries(Cloudy9 PRIVATE juce::juce_audio_utils PUBLIC juce::juce_recommended_config_flags juce::juce_recommended_lto_flags juce::juce_recommended_warning_flags)
+target_link_libraries(Cloudy9 PRIVATE juce::juce_audio_utils juce::juce_dsp PUBLIC juce::juce_recommended_config_flags juce::juce_recommended_lto_flags juce::juce_recommended_warning_flags)
 add_executable(Cloudy9DSPTest Tests/dsp_test.cpp)
 enable_testing()
 add_test(NAME Cloudy9DSP COMMAND Cloudy9DSPTest)
