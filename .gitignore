@@ -1,0 +1,6 @@
+build/
+JUCE/
+*.zip
+*.log
+.DS_Store
+dsp_test
